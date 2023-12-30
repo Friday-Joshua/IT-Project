@@ -1,30 +1,36 @@
 'use client'
 
+import { ArrowRight, CaretLeft, X } from '@phosphor-icons/react';
+import { Metadata } from "next";
+import Link from 'next/link';
+import { FormEvent, HTMLAttributes, useState } from "react";
 import Input from "../../components/inputs";
-import {X,ArrowRight,CaretLeft} from '@phosphor-icons/react'
-import Link from 'next/link'
-import { useState, FormEvent, HTMLAttributes} from "react";
 
-type FormState = Partial<{email:string, password:string}>;
+export const metaData: Metadata = {
+    title: "Dressly | Signin your free account or create one"
+}
+
+type FormState = Partial<{ email: string, password: string }>;
 
 export default function Page() {
-    const [currentPhase,setCurrentPhase] = useState<number>(0);
-    const [formState,setFormState] = useState<FormState>({
-        email:'',password:'',});
+    const [currentPhase, setCurrentPhase] = useState<number>(0);
+    const [formState, setFormState] = useState<FormState>({
+        email: '', password: '',
+    });
 
-    function setProgress(phase:number){
+    function setProgress(phase: number) {
         setCurrentPhase(phase);
     }
 
-    function saveFormState(state:FormState){
+    function saveFormState(state: FormState) {
         setFormState(state);
     }
 
-    return(
+    return (
         <main className="bg-primary mb-24">
-            {currentPhase === 0 
-            ? <Phase1 formState={[formState,setFormState]} progress={setProgress} />
-            : <Phase2 formState={[formState,setFormState]} progress={setProgress} />
+            {currentPhase === 0
+                ? <Phase1 formState={[formState, setFormState]} progress={setProgress} />
+                : <Phase2 formState={[formState, setFormState]} progress={setProgress} />
             }
 
             <div className="w-screen -mx-4 fixed bottom-0 bg-secondary p-4 border-t">
@@ -39,31 +45,31 @@ export default function Page() {
     )
 }
 
-function Phase1({formState:[prevState,setFormState],progress}:HTMLAttributes<HTMLElement> &
-    {formState:ReturnType<typeof useState<FormState>>,progress:(phase:number)=>void}){
-    
+function Phase1({ formState: [prevState, setFormState], progress }: HTMLAttributes<HTMLElement> &
+{ formState: ReturnType<typeof useState<FormState>>, progress: (phase: number) => void }) {
+
     const [isFormValid, setIsFormValid] = useState(false);
 
-    function handleSubmit(e:FormEvent<HTMLFormElement>){
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         // retrieving and storing user inputs
         const fd = new FormData(e.currentTarget);
-        const state = {email:fd.get("email") as string, password:fd.get('password') as string};
+        const state = { email: fd.get("email") as string, password: fd.get('password') as string };
         setFormState(state); // updating formstate
         progress(1) //proceeding to Create Password
     }
 
-    return(
+    return (
         <section className="mb-12">
             <div className="flex flex-row justify-between items-center mt-4">
                 <header>
                     <h1 className="text-h3 font-black">Sign In</h1>
                 </header>
-                <X size={24} color="text-b-500 " className="active:opacity-5"/>
-            </div> 
+                <X size={24} color="text-b-500 " className="active:opacity-5" />
+            </div>
             <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
                 <Input.Email defaultValue={(prevState as FormState).email} label='Email' name="email" id="email" placeholder="me@example.com" />
-                <Input.Password defaultValue={(prevState as FormState).password} name="password" label="Password" id="password" placeholder="***********"/>
+                <Input.Password defaultValue={(prevState as FormState).password} name="password" label="Password" id="password" placeholder="***********" />
                 <Link href={'/password-reset'} className=" underline text-b-500">Can't remember password?</Link>
                 <button type="submit" disabled={isFormValid} className="lg:hover:bg-a-600 active:bg-a-600 bg-accent flex flext-row justify-center items-center rounded-full h-[50px] text-a-50 gap-2">Next: Create Password <ArrowRight size={20} /></button>
             </form>
@@ -76,36 +82,36 @@ function Phase1({formState:[prevState,setFormState],progress}:HTMLAttributes<HTM
 }
 
 
-function Phase2({formState:[prevState,setFormState],progress}:HTMLAttributes<HTMLElement> &
-    {formState:ReturnType<typeof useState<FormState>>,progress:(phase:number)=>void}){
+function Phase2({ formState: [prevState, setFormState], progress }: HTMLAttributes<HTMLElement> &
+{ formState: ReturnType<typeof useState<FormState>>, progress: (phase: number) => void }) {
 
-        function handleSubmit(e:FormEvent<HTMLFormElement>){
-            e.preventDefault();
-            // retrieving and storing user inputs
-            const fd = new FormData(e.currentTarget);
-            const secretOTP = "123456";
-            const enteredOTP = fd.get('otp');
-            if(secretOTP === enteredOTP){
-                e.currentTarget.reset();``
-             alert(`Account Created! ${JSON.stringify(prevState)}`);
-            } else{
-                return
-            }
-            
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        // retrieving and storing user inputs
+        const fd = new FormData(e.currentTarget);
+        const secretOTP = "123456";
+        const enteredOTP = fd.get('otp');
+        if (secretOTP === enteredOTP) {
+            e.currentTarget.reset(); ``
+            alert(`Account Created! ${JSON.stringify(prevState)}`);
+        } else {
+            return
         }
 
-    return(
+    }
+
+    return (
         <>
             <div className="flex flex-row justify-start mt-4">
-                <CaretLeft size={24} color="text-b-500" onClick={()=>progress(0)} />
-            </div> 
+                <CaretLeft size={24} color="text-b-500" onClick={() => progress(0)} />
+            </div>
             <header>
                 <h1 className="text-h3 font-black">OTP</h1>
             </header>
             <p>A 6-digit verification code has been sent to <span className="font-bold">johndoe@example.com.</span> Enter the code in the textbox below</p>
             <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-5">
-                <Input.OTP name="otp" label="OTP" id="otp" placeholder="0 0 0 0 0 0"/>
-                <button type="submit"  className="lg:hover:bg-a-600 active:bg-a-600 bg-accent flex flext-row justify-center items-center rounded-full h-[50px] text-a-50 gap-2">Verify OTP </button>
+                <Input.OTP name="otp" label="OTP" id="otp" placeholder="0 0 0 0 0 0" />
+                <button type="submit" className="lg:hover:bg-a-600 active:bg-a-600 bg-accent flex flext-row justify-center items-center rounded-full h-[50px] text-a-50 gap-2">Verify OTP </button>
             </form>
         </>
     )

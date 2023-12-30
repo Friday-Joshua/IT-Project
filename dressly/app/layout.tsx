@@ -17,7 +17,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`font-sans accent-primary bg-primary m-4`}>
+      <body className={`font-sans accent-primary bg-primary m-6`}>
         {children}</body>
     </html>
   )

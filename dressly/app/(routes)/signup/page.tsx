@@ -2,8 +2,13 @@
 
 import Input from "../../components/inputs";
 import {X,ArrowRight,CaretLeft} from '@phosphor-icons/react'
+import { Metadata } from "next";
 import Link from 'next/link'
 import { useState, FormEvent, HTMLAttributes} from "react";
+
+export const metaData:Metadata = {
+    title:"Dressly | Signup for a free account"
+}
 
 type FormState = Partial<{email:string, password:string, fullName:string, tel:string}>;
 
