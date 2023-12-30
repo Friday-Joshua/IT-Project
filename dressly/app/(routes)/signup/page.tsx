@@ -34,7 +34,7 @@ export default function Page() {
             : <Phase3 formState={[formState,setFormState]} progress={setProgress} />
             }
 
-            <div className="w-screen -mx-4 fixed bottom-0 bg-secondary p-4 border-t">
+            <div className="w-screen -mx-6 fixed bottom-0 bg-secondary p-4 border-t">
                 <p className="text-b-500 text-small-2 font-bold">Step {currentPhase + 1}</p>
                 <div className="flex flex-row justify-start gap-2 items-center mt-2">
                     <div className={`${currentPhase == 0 ? "w-8 bg-accent" : currentPhase === 1 ? "w-4 bg-a-50" : "w-4 bg-a-50 "} h-2 rounded-full transition duration-170`}></div>
