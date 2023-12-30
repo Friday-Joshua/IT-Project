@@ -1,0 +1,27 @@
+.inputEmail{
+    background-image: url('/envelope.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+}
+
+.inputPassword{
+    background-image: url('/lock.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+}
+
+.inputUser{
+    background-image: url('/user.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+}
+
+.inputPhone{
+    background-image: url('/phone.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+}
