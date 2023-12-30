@@ -27,27 +27,37 @@ export default function Page(){
       </header>
 
       {/* OUR SERVICES  */}
-      <section className='my-20'>
-        <header className='mb-8'>
+      <section className='my-12'>
+        <header className=''>
           <h4 className='text-h3 text-color font-black'>Our Services</h4>
         </header>
+
         {/* Tailoring */}
-        <article className='flex flex-col gap-4 justify-between items-center bg-white rounded-2xl border border-w-100 p-5'>
+        <article className='flex flex-col gap-4 justify-between items-center bg-white rounded-2xl border border-w-100 p-5 my-14'>
           <span className='flex justify-center items-center -mt-[50px] p-5 border border-w-100 rounded-full bg-w-500' ><Ruler size={24}  /></span>
           <h5 className='text-h4 font-black'>Tailoring</h5>
           <p>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
           </p>
-          <button className='flex justify-center items-center bg-a-50 p-5 h-12 w-full rounded-full transition-transform active:scale-50'>Book Now</button>
+          <button className='flex justify-center items-center text-accent bg-a-50 p-5 h-12 w-full rounded-full transition-transform active:scale-95'>Book Now</button>
         </article>
+
         {/* Styling Session */}
-        <article className='flex flex-col gap-4 justify-between items-center bg-white rounded-2xl border border-w-100 p-5'>
-          <span className='flex justify-center items-center -mt-[50px] p-5 border border-w-100 rounded-full bg-w-500' ><Ruler size={24}  /></span>
-          <h5 className='text-h4 font-black'>Tailoring</h5>
+        <article className='flex flex-col gap-4 justify-between items-center bg-white rounded-2xl border border-w-100 p-5 my-14'>
+          <span className='flex justify-center items-center -mt-[50px] p-5 border border-w-100 rounded-full bg-w-500' ><Notepad size={24}  /></span>
+          <h5 className='text-h4 font-black'>Styling Session</h5>
           <p>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
           </p>
-          <button className='flex justify-center items-center bg-a-50 p-5 h-12 w-full rounded-full transition-transform active:scale-50'>Book Now</button>
+          <button className='flex justify-center items-center text-accent bg-a-50 p-5 h-12 w-full rounded-full transition-transform active:scale-95'>Book Now</button>
         </article>
-        {/*  */}
+
+        {/* Online Store  */}
+        <article className='flex flex-col gap-4 justify-between items-center bg-white rounded-2xl border border-w-100 p-5 my-14'>
+          <span className='flex justify-center items-center -mt-[50px] p-5 border border-w-100 rounded-full bg-w-500' ><ShoppingCart size={24}  /></span>
+          <h5 className='text-h4 font-black'>Online Store</h5>
+          <p>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
+          </p>
+          <button className='flex justify-center items-center text-accent bg-a-50 p-5 h-12 w-full rounded-full transition-transform active:scale-95'>Book Now</button>
+        </article>
       </section>
 
 
