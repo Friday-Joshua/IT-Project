@@ -59,6 +59,8 @@ const config: Config = {
         primary:'#FCFCFC',
         secondary:'#FFFFFF',
         accent:'#D53597',
+        color:"#222222",
+        icon:'#222222',
         a: {
           50:'#FBEAF4',
           100:'#2A091D',
@@ -108,7 +110,7 @@ const config: Config = {
         'small-2':'0.694rem'
       },
       backgroundColor: {
-        primary:'#FCFCFC',
+        primary:'#FAFAFA',
         secondary:'#FFFFFF',
         accent:'#D53597',
         a: {
