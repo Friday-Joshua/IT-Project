@@ -18,7 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans accent-primary bg-primary m-5`}>
-        {children}</body>
+        {children}
+      </body>
     </html>
   )
 }
