@@ -17,6 +17,8 @@ const config: Config = {
         primary:'#FCFCFC',
         secondary:'#FFFFFF',
         accent:'#D53597',
+        'p-color':"#333333",
+        'h-color':"#222222",
         a: {
           50:'#FBEAF4',
           100:'#2A091D',
@@ -59,7 +61,6 @@ const config: Config = {
         primary:'#FCFCFC',
         secondary:'#FFFFFF',
         accent:'#D53597',
-        color:"#222222",
         icon:'#222222',
         a: {
           50:'#FBEAF4',

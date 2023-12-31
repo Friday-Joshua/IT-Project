@@ -5,6 +5,7 @@ import {X,ArrowRight,CaretLeft} from '@phosphor-icons/react'
 import { Metadata } from "next";
 import Link from 'next/link'
 import { useState, FormEvent, HTMLAttributes} from "react";
+import { useRouter } from "next/navigation";
 
 export const metaData:Metadata = {
     title:"Dressly | Signup for a free account"
@@ -72,13 +73,15 @@ function Phase1({formState:[prevState,setFormState],progress}:HTMLAttributes<HTM
                 <header>
                     <h1 className="text-h3 font-black">Sign Up</h1>
                 </header>
-                <X size={24} color="text-b-500 " className="active:opacity-5"/>
+                <Link href={'/'}>
+                    <X size={24} color="text-b-500 " className="active:opacity-5"/>
+                </Link>
             </div> 
             <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
                 <Input.Text defaultValue={(prevState as FormState).fullName} label='Fullname' name="fullName" id="fullname" placeholder="John Doe" />
                 <Input.Email defaultValue={(prevState as FormState).email} label='Email' name="email" id="email" placeholder="me@example.com" />
                 <Input.Tel defaultValue={(prevState as FormState).tel} label='Phone number' name="tel" id="tel" placeholder="080468238" />
-                <Link href={'/password-reset'} className=" underline text-b-500">Can't remember password?</Link>
+                <Link href={'/password-reset'} className=" underline text-b-500">Can&apos;t remember password?</Link>
                 <button type="submit" disabled={isFormValid} className="lg:hover:bg-a-600 active:bg-a-600 bg-accent flex flext-row justify-center items-center rounded-full h-[50px] text-a-50 gap-2">Next: Create Password <ArrowRight size={20} /></button>
             </form>
             <div className="mt-5">
@@ -126,6 +129,9 @@ function Phase2({formState:[prevState,setFormState],progress}:HTMLAttributes<HTM
 function Phase3({formState:[prevState,setFormState],progress}:HTMLAttributes<HTMLElement> &
     {formState:ReturnType<typeof useState<FormState>>,progress:(phase:number)=>void}){
 
+        
+        const router = useRouter();
+
         function handleSubmit(e:FormEvent<HTMLFormElement>){
             e.preventDefault();
             // retrieving and storing user inputs
@@ -135,6 +141,7 @@ function Phase3({formState:[prevState,setFormState],progress}:HTMLAttributes<HTM
             if(secretOTP === enteredOTP){
                 e.currentTarget.reset();``
              alert(`Account Created! ${JSON.stringify(prevState)}`);
+             router.push('/')
             } else{
                 return
             }
