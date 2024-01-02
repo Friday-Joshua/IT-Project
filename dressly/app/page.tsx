@@ -1,30 +1,38 @@
-
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {Notepad,Ruler,User,List, MagnifyingGlass,ShoppingCart, Eye, ShareFat} from '@phosphor-icons/react/dist/ssr'
+import {Notepad,Ruler,User,List, MagnifyingGlass,ShoppingCart, Eye, ShareFat, Heart, Chat, Star, StarHalf} from '@phosphor-icons/react/dist/ssr'
 import Navbar from './components/navbar'
 import Spacer from './components/spacer'
-
-// blog bg imports
+import BlogCard from './components/blogCard'
 import blogBG1 from '../public/blog-bg1.png'
 import blogBG2 from '../public/blog-bg2.png'
 import blogBG3 from '../public/blog-bg3.png'
-
-// import { useState, useEffect } from 'react'
-
+import { BlogCardProps } from './components/blogCard'
+import Rating from './components/rating'
+import CustomerReview from './components/customerReview'
+// Stylesheets
+import styles from './styles/index.module.css'
 
 export default function Page(){
+  type BlogType = BlogCardProps & {id:string};
+  const blogPosts:BlogType[] = [
+    {id:"1258", title:"Navigating the World of Fashion", author:"Jane Doe", heroSrc:blogBG1, date:'September 05 2023', views:38, likes: 59, content:"Vintage fashion is more than just clothing; it's a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring '20s to the glamorous '50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period."},
 
-  
+    {id:"484934", title:"Couture Corner: All About High-End Fashion", author:"Jane Doe", heroSrc:blogBG2, date:'September 10 2023', views:48, likes: 82, content:"Vintage fashion is more than just clothing; it's a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring '20s to the glamorous '50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period."},
+
+    {id:"0edd0e39", title:"Navigating the World of Fashion", author:"Jane Doe", heroSrc:blogBG3, date:'September 20 2023', views:28, likes: 47, content:"Vintage fashion is more than just clothing; it's a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring '20s to the glamorous '50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period."},];
+
   return(
     <>
     <Navbar />
     <main>
       <header className='-m-5 sw-screen h-screen bg-[url("/hero.png")] bg-cover bg-center bg-no-repeat'>
         <div className='absolute bottom-7 ml-5'>
-          <h1 className=' text-[60px] text-white w-7 font-black'>CHIC AND UNIQUE</h1>
-          <button className='flex justify-between items-center gap-4 p-5 rounded-full bg-accent outline-none border-white border-4 text-a-50 h-16 transition-transform active:scale-50'>
-            <ShoppingCart size={24}  />Shop Now</button>
+          <h1 className=' text-[60px] text-white w-7 font-black'>CHIC AND UNIQUE <i>store</i></h1>
+          <button className='flex justify-between items-center gap-4 px-8 py-5 rounded-full bg-accent outline-none border-white border-4 text-a-50 h-16 transition-transform active:scale-50'>
+            <ShoppingCart size={24}  />Shop Now
+            </button>
         </div>
       </header>
 
@@ -33,7 +41,7 @@ export default function Page(){
       {/* OUR SERVICES  */}
       <section>
         <header className=''>
-          <h3 className='text-h3 text-h-color font-black'>Our Services</h3>
+          <h4 className='text-h4 text-h-color font-black'>Our Services</h4>
         </header>
 
         <Spacer size={8} />
@@ -44,7 +52,7 @@ export default function Page(){
           <h5 className='text-h5 text-h-color font-black'>Tailoring</h5>
           <p className='text-p-color'>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
           </p>
-          <button className='flex justify-center items-center text-accent bg-a-50 p-5 h-12 w-full rounded-full transition-transform active:scale-95'>Book Now</button>
+          <Link href='/' className='flex justify-center items-center text-a-50 bg-accent p-5 h-12 w-full rounded-full transition-transform active:scale-95'>Book Now</Link>
         </article>
 
         <Spacer size={8} />
@@ -55,7 +63,7 @@ export default function Page(){
           <h5 className='text-h5 text-h-color font-black'>Styling Session</h5>
           <p className='text-p-color'>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
           </p>
-          <button className='flex justify-center items-center text-accent bg-a-50 p-5 h-12 w-full rounded-full transition-transform active:scale-95'>Book Now</button>
+          <Link href='/' className='flex justify-center items-center text-a-50 bg-accent p-5 h-12 w-full rounded-full transition-transform active:scale-95'>Book Now</Link>
         </article>
 
         <Spacer size={8} />
@@ -66,69 +74,85 @@ export default function Page(){
           <h5 className='text-h5 text-h-color font-black'>Online Store</h5>
           <p className='text-p-color'>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
           </p>
-          <button className='flex justify-center items-center text-accent bg-a-50 p-5 h-12 w-full rounded-full transition-transform active:scale-95'>Book Now</button>
+          <Link href='/' className='flex justify-center items-center text-a-50 bg-accent p-5 h-12 w-full rounded-full transition-transform active:scale-95'>Book Now</Link>
         </article>
       </section>
-
-      <Spacer size={12}/>
-
-      {/* A glimps into our store */}
-      <section>
+      <Spacer size={12} />
+      <section> 
         <header>
-          <h3 className='text-h3 text-h-color font-black'>A glimpse into our store</h3>
+          <h4 className='text-h4 text-h-color font-black'>A glimpse into our store</h4>
         </header>
-        <Spacer size={6}/>
-        <div className='overflow-x-auto whitespace-pre snap-x snap-mandatory scroll-p-7'>
-          <Image  src={'/image6.png'} width={300} height={500} alt='product image' className=' object-contain aspect-square  snap-center scroll-m-2 snap-always inline-block' /> 
-
-          <Image  src={'/image8.png'}  width={300} height={500} alt='product image' className=' object-contain aspect-square  snap-center scroll-m-2 snap-always inline-block' /> 
-
-          <Image  src={'/image5.png'} width={300} height={500} alt='product image' className=' object-contain aspect-square  snap-center scroll-m-2 snap-always inline-block' /> 
+        <Spacer size={4}/>
+        <div className={`${styles.noScrollBar} py-5 overflow-x-auto whitespace-pre snap-x snap-mandatory scroll-p-7 -mx-5 px-5`}>
+          
+          <Link href='/shop'>
+            <Image  src={'/image6.png'} width={300} height={300} alt='product image' className=' transition duration-90 active:shadow-md hover:shadow-md w-11/12 object-contain aspect-square  snap-center snap-always inline-block border border-line bg-secondary mr-5 p-5 rounded-2xl' /> 
+          </Link>
+          <Link href='/shop'>
+            <Image  src={'/image8.png'} width={300} height={300} alt='product image' className=' transition duration-90 active:shadow-md hover:shadow-md w-11/12 object-contain aspect-square  snap-center snap-always inline-block border border-line bg-secondary mr-5 p-5 rounded-2xl' /> 
+          </Link>
+          <Link href='/shop'>
+            <Image  src={'/image5.png'} width={300} height={300} alt='product image' className=' transition duration-90 active:shadow-md hover:shadow-md w-11/12 object-contain aspect-square  snap-center snap-always inline-block border border-line bg-secondary mr-5 p-5 rounded-2xl' /> 
+          </Link>
         </div>
 
-        <Spacer size={6}/>
+        <Spacer size={4}/>
 
-        <Link href={'/shop'} className='flex justify-center items-center gap-4 bg-accent py-4 px-5 rounded-full text-a-50 w-fit mx-auto transiton-transform active:scale-95 active:bg-a-600'><ShoppingCart size={24} />Shop Now</Link>
+        <Link href={'/shop'} className='flex justify-center items-center gap-4 bg-accent py-4 px-8 rounded-full text-a-50 w-fit mx-auto transiton-transform active:scale-95 active:bg-a-600'><ShoppingCart size={24} />Shop Now</Link>
       </section>
 
       <Spacer size={12}/>
 
       <section>
       <header>
-          <h3 className='text-h3 text-color font-black'>Latest Bogs</h3>
+          <h4 className='text-h4 text-color font-black'>Latest Bogs</h4>
         </header>
 
         <Spacer size={4}/>
 
-        <div className='grid grid-cols-12'>
-          <article className='bg-secondary border border-w-100 rounded-2xl p-5 col-span-12 flex flex-col justify-between items-center gap-8'>
-            <header>
-              <div className='flex justify-between items-center gap-2 w-full'>
-                <h1 className='text-h5 text-h-color font-black'>Navigating the World of Fashion</h1>
-                <Image src={blogBG1} width={100} height={100}  alt='blog background image' className='aspect-square rounded-full'/>
-              </div>
-              <strong className='text-b-600 mt-4 block'>By Jane Doe</strong>
-              <div className='flex justify-between items-center'>
-                <small className='text-b-600'>September 10 2023</small>
-                <div className='flex justify-between items-center gap-2'>
-                  <Eye size={16} className='text-b-600' />
-                  <small className='text-b-600'>324</small>
-                </div>
-              </div>
-            </header>
-            <hr className=' border-w-100 w-full'/>
-          <p className='text-p-color'>
-            Vintage fashion is more than just clothing; it&apos;s a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring &apos;20s to the glamorous &apos;50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period.
-            </p>
-            <div className='flex justify-between items-center transition '>
-              <Link href={'/blog'} className='py-4 px-5 rounded-full bg-accent text-white active:scale-95 active:bg-a-600'>Read More</Link>
-              <div className='flex justify-between items-center gap-3'>
-                <ShareFat size={20} />
-              </div>
-            </div>
-          </article>
+        <div className='grid grid-cols-12 gap-6'>
+          {blogPosts.map((post)=>{
+            return (
+              <React.Fragment key={post.id} >
+                <BlogCard title={post.title} heroSrc={post.heroSrc} author={post.author} date={post.date} views={post.views} likes={post.likes} content={post.content} />
+              </React.Fragment>
+            )
+          })} 
         </div>
       </section>
+
+      <Spacer size={12}/>
+
+        {/* Customer Review Section  */}
+      <section >
+        <header>
+        <h4 className='text-h4 text-color font-black'>Customer Reviews</h4>
+        <div className='flex justify-start items-center gap-3 mt-1'>
+          <span className='rounded-full bg-w-100 p-2 flex justify-center items-center'>
+            <Chat size={16} className='text-icon' />
+          </span>
+          <small className='text-b-500'>17 Reviews</small>
+        </div>
+        </header>
+        <Spacer size={6} />
+        {/* customer comments */}
+        <section className={`${styles.noScrollBar} overflow-x-auto whitespace-pre snap-x snap-mandatory scroll-p-7 -mx-5 px-5`}>
+          <div className='snap-center whitespace-normal scroll-m-2  mr-5 snap-always inline-block w-11/12'>
+            <CustomerReview avatarUrl={blogBG1} comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Chioma M.'}  />
+          </div>
+          <div className='snap-center scroll-m-2 snap-always mr-5 whitespace-normal inline-block w-11/12'>
+            <CustomerReview avatarUrl={blogBG2} comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Kelly K.'} />
+          </div>
+          <div className='snap-center whitespace-normal scroll-m-2 snap-always mr-5 inline-block w-11/12'>
+            <CustomerReview avatarUrl={blogBG3} comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Larry M.'}  />
+          </div>
+          <div className='snap-center scroll-m-2 snap-always whitespace-normal inline-block w-11/12'>
+            <CustomerReview avatarUrl={blogBG1} comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Janny J.'} />
+          </div>
+        </section>
+
+      </section>
+
       </main>
     </>
   )
