@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/navbar'
 import SideMenuProvider from './components/sideMenuContext'
+import SideMenu from './components/sideMenu'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +22,9 @@ export default function RootLayout({
     <html lang="en" className='scroll-smooth'>
       <body className='font-sans accent-primary bg-primary scroll-smooth'>
         <SideMenuProvider>
-          {children}
+          <SideMenu>
+            {children}
+          </SideMenu>
         </SideMenuProvider>
       </body>
     </html>

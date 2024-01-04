@@ -13,7 +13,6 @@ import NewsLetter from './components/newsletter'
 import Rating from './components/rating'
 import Spacer from './components/spacer'
 import Footer from './components/footer'
-import SideMenu from "./components/sideMenu";
 
 // Stylesheets
 import styles from './styles/index.module.css'
@@ -30,8 +29,6 @@ export default function Page() {
   return (
     <>
       <Navbar />
-        <SideMenu>
-        
         <main className='bg-primary mx-5'>
         <header className='relative top-0 left-0 right-0 bottom-0 -mx-5 h-screen overflow-hidden bg-[url("/hero.png")] bg-cover bg-center bg-no-repeat'>
           <div className='absolute bottom-20 ml-5'>
@@ -163,9 +160,7 @@ export default function Page() {
         <NewsLetter />
         <Spacer size={8} />
         <Footer />
-        </main>
-        
-      </SideMenu>
+        </main>        
     </>
   )
 }
