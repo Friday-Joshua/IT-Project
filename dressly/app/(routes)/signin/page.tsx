@@ -29,7 +29,7 @@ export default function Page() {
     }
 
     return (
-        <main className="bg-primary mb-24">
+        <main className="bg-primary mb-24 mx-5">
             {currentPhase === 0
                 ? <Phase1 formState={[formState, setFormState]} progress={setProgress} />
                 : <Phase2 formState={[formState, setFormState]} progress={setProgress} />

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Navbar from './components/navbar'
+import SideMenuProvider from './components/sideMenuContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,11 +16,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
+  
   return (
-    <html lang="en">
-      <body className={`font-sans accent-primary bg-primary scroll-smooth m-5`}>
-        {children}
+    <html lang="en" className='scroll-smooth'>
+      <body className='font-sans accent-primary bg-primary scroll-smooth'>
+        <SideMenuProvider>
+          {children}
+        </SideMenuProvider>
       </body>
     </html>
   )

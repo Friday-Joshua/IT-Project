@@ -25,3 +25,54 @@ input:-webkit-autofill:active{
   transition-timing-function: ease;
   padding-left:16px;
 }
+
+.trans-w-100 {
+  background-color: rgb( 255 255 255/0.1);
+}
+.trans-w-200 {
+  background-color: rgb( 255 255 255/0.2);
+}
+.trans-w-300 {
+  background-color: rgb( 255 255 255/0.3);
+}
+.trans-w-400 {
+  background-color: rgb( 255 255 255/0.4);
+}
+.trans-w-500 {
+  background-color: rgb( 255 255 255/0.5);
+}
+.trans-w-600 {
+  background-color: rgb( 255 255 255/0.6);
+}
+.trans-w-700 {
+  background-color: rgb( 255 255 255/0.7);
+}
+.trans-w-800 {
+  background-color: rgb( 255 255 255/0.8);
+}
+.trans-w-900 {
+  background-color: rgb( 255 255 255/0.9);
+}
+
+html,body {
+  overflow-x:hidden ;
+}
+/* side menu */
+.shiftOff {
+  transform:translate(50%, -50px) scale(.7,.7) rotate(-10deg);
+  /* height:100vh; */
+  position: fixed;
+}
+
+.drop-bg {
+  box-shadow: -50px 50px 0 0px rgb( 255 255 255/0.1),  -100px 100px 0 0px rgb( 255 255 255/0.04);
+}
+.slide-in {
+  transform: translateX(-100px);
+  animation: slide-in 200ms forwards ease-out;
+}
+@keyframes slide-in {
+  to {
+    transform: translateX(0);
+  }
+}
