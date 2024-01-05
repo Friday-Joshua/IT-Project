@@ -79,6 +79,17 @@ function Password({ label, placeholder, id, defaultValue, name }: InputType): Re
     )
 }
 
+function Search({placeholder}: Omit<InputType,'label'|'defaultValue'|'name'|'id'>): React.ReactNode {
+    return (
+        <section className="flex flex-col gap-2 justify-start w-full max-w-full">
+            <input className={`${styles.inputSearch} font-bold placeholder:font-normal text-lg text-h-color rounded-full h-16 focus:border-accent outline-none focus:outline-none transition-all duration-150 pl-12 pr-5 border border-w-100 py-2`} type="search" placeholder={placeholder} required />
+        </section>
+    )
+}
+
+export function SearchBar() {
+    return  <Input.Search placeholder="search for clothes" />
+}
 
 export default function Input() { }
 Input.Text = Text;
@@ -88,3 +99,4 @@ Input.OTP = OTP;
 Input.Email = Email;
 Input.Tel = Tel;
 Input.TextArea = TextArea;
+Input.Search = Search;
