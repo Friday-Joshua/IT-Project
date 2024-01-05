@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   
   return (
-    <html lang="en" className='scroll-smooth'>
+    <html lang="en" className=''>
       <body className='font-sans accent-primary bg-primary scroll-smooth'>
         <SideMenuProvider>
           <SideMenu>

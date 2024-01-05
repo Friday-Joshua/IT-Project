@@ -76,3 +76,7 @@ html,body {
     transform: translateX(0);
   }
 }
+
+.hideScrollbar::-webkit-scrollbar {
+  appearance: none;
+}

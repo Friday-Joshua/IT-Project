@@ -23,7 +23,7 @@ export default function BlogCard({title, heroSrc, author, date, views, likes, co
               </div>
             </header>
             <hr className=' border-w-100 w-full'/>
-            <p className='text-p-color w-full'>
+            <p className='text-p-color text-lg w-full'>
                 {content.substring(0,70)}
                 <span className='truncate w-full overflow-hidden block'>{content.substring(70,content.length)}</span>
             </p>

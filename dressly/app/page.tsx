@@ -1,16 +1,14 @@
-import { Chat, Eye, Heart, List, MagnifyingGlass, Notepad, Ruler, ShareFat, ShoppingCart, Star, StarHalf, User } from '@phosphor-icons/react/dist/ssr'
+import { Chat, Notepad, Ruler, ShoppingCart } from '@phosphor-icons/react/dist/ssr'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, {use} from 'react'
-import blogBG1 from '../public/blog-bg1.png'
-import blogBG2 from '../public/blog-bg2.png'
-import blogBG3 from '../public/blog-bg3.png'
-import BlogCard, { BlogCardProps } from './components/blogCard'
-import CustomerReview from './components/customerReview'
-import Input from './components/inputs'
-import Navbar from './components/navbar'
+import React from 'react'
+import blogBG1 from '@/public/blog-bg1.png'
+import blogBG2 from '@/public/blog-bg2.png'
+import blogBG3 from '@/public/blog-bg3.png'
+import BlogCard, { BlogCardProps } from '@/app/components/blogCard'
+import CustomerReview from '@/app/components/customerReview'
+import {HomeNavbar} from './components/navbar'
 import NewsLetter from './components/newsletter'
-import Rating from './components/rating'
 import Spacer from './components/spacer'
 import Footer from './components/footer'
 
@@ -28,9 +26,9 @@ export default function Page() {
 
   return (
     <>
-      <Navbar />
-        <main className='bg-primary mx-5'>
-        <header className='relative top-0 left-0 right-0 bottom-0 -mx-5 h-screen overflow-hidden bg-[url("/hero.png")] bg-cover bg-center bg-no-repeat'>
+      <HomeNavbar />
+        <main  className='bg-primary mx-5'>
+        <header className=' hideScrollbar  relative w-screen -mx-5 h-screen overflow-hidden bg-[url("/hero.png")] bg-cover bg-center bg-no-repeat'>
           <div className='absolute bottom-20 ml-5'>
             <h1 className=' text-[60px] text-white w-7 font-black'>CHIC AND UNIQUE <i>store</i></h1>
             <button className='flex justify-between items-center gap-4 px-8 py-5 rounded-full bg-accent outline-none border-white border-4 text-a-50 h-16 transition-transform duration-200 active:scale-50 active:opacity-50'>
@@ -38,11 +36,10 @@ export default function Page() {
             </button>
           </div>
         </header>
-
         <Spacer size={12} />
 
         {/* OUR SERVICES  */}
-        <section className='snap-start snap-always scroll-m-12'>
+        <section className=''>
           <header className=''>
             <h4 className='text-h4 text-h-color font-black'>Our Services</h4>
           </header>
@@ -53,9 +50,9 @@ export default function Page() {
           <article className='flex my flex-col gap-4 justify-between items-center bg-white rounded-2xl border border-w-100 p-5 '>
             <span className='flex justify-center items-center -mt-[52px] p-5 border border-w-100 rounded-full bg-w-500' ><Ruler size={24} /></span>
             <h5 className='text-h5 text-h-color font-black'>Tailoring</h5>
-            <p className='text-p-color'>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
+            <p className='text-p-color text-lg'>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
             </p>
-            <Link href='/' className='flex justify-center items-center text-a-50 bg-accent p-5 h-12 w-full rounded-full transition-transform active:scale-95 active:opacity-50'>Book Now</Link>
+            <Link href='/' className='flex justify-center items-center w-full text-a-50 bg-accent p-5 h-12 rounded-full transition-transform active:scale-95 active:opacity-50'>Book Now</Link>
           </article>
 
           <Spacer size={8} />
@@ -64,7 +61,7 @@ export default function Page() {
           <article className='flex flex-col gap-4 justify-between items-center bg-white rounded-2xl border border-w-100 p-5 '>
             <span className='flex justify-center items-center -mt-[52px] p-5 border border-w-100 rounded-full bg-w-500' ><Notepad size={24} /></span>
             <h5 className='text-h5 text-h-color font-black'>Styling Session</h5>
-            <p className='text-p-color'>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
+            <p className='text-p-color text-lg'>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
             </p>
             <Link href='/' className='flex justify-center items-center text-a-50 bg-accent p-5 h-12 w-full rounded-full transition-transform duration-200 active:scale-95 active:opacity-50'>Book Now</Link>
           </article>
@@ -75,13 +72,14 @@ export default function Page() {
           <article className='flex flex-col gap-4 justify-between items-center bg-white rounded-2xl border border-w-100 p-5 '>
             <span className='flex justify-center items-center -mt-[52px] p-5 border border-w-100 rounded-full bg-w-500' ><ShoppingCart size={24} /></span>
             <h5 className='text-h5 text-h-color font-black'>Online Store</h5>
-            <p className='text-p-color'>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
+            <p className='text-p-color text-lg'>Unleash your creativity and design your own clothing pieces with our bespoke service. From selecting fabrics to adding personalized details, our designers will bring your vision to life.
             </p>
             <Link href='/' className='flex justify-center items-center text-a-50 bg-accent p-5 h-12 w-full rounded-full transition-transform duration-200 active:scale-95 active:opacity-50'>Book Now</Link>
           </article>
         </section>
         <Spacer size={12} />
-        <section className='snap-start snap-always scroll-m-12 '>
+
+        <section className=' hideScrollbar  scroll-my'>
           <header>
             <h4 className='text-h4 text-h-color font-black'>A glimpse into our store</h4>
           </header>
@@ -89,13 +87,13 @@ export default function Page() {
           <div className={`${styles.noScrollBar} py-5 overflow-x-auto whitespace-pre snap-x snap-mandatory scroll-p-7 -mx-5 px-5`}>
 
             <Link href='/shop'>
-              <Image src={'/image6.png'} width={300} height={300} alt='product image' className=' transition duration-90 active:shadow-md hover:shadow-md w-11/12 object-contain aspect-square  snap-center snap-always inline-block border border-line bg-secondary mr-5 p-5 rounded-2xl' />
+              <Image src={'/image6.png'} width={300} height={300} alt='product image' className=' transition duration-90 active:shadow-md hover:shadow-md w-11/12 object-contain aspect-square  snap-center inline-block border border-line bg-secondary mr-5 p-5 rounded-2xl' />
             </Link>
             <Link href='/shop'>
-              <Image src={'/image8.png'} width={300} height={300} alt='product image' className=' transition duration-90 active:shadow-md hover:shadow-md w-11/12 object-contain aspect-square  snap-center snap-always inline-block border border-line bg-secondary mr-5 p-5 rounded-2xl' />
+              <Image src={'/image8.png'} width={300} height={300} alt='product image' className=' transition duration-90 active:shadow-md hover:shadow-md w-11/12 object-contain aspect-square  snap-center inline-block border border-line bg-secondary mr-5 p-5 rounded-2xl' />
             </Link>
             <Link href='/shop'>
-              <Image src={'/image5.png'} width={300} height={300} alt='product image' className=' transition duration-90 active:shadow-md hover:shadow-md w-11/12 object-contain aspect-square  snap-center snap-always inline-block border border-line bg-secondary mr-5 p-5 rounded-2xl' />
+              <Image src={'/image5.png'} width={300} height={300} alt='product image' className=' transition duration-90 active:shadow-md hover:shadow-md w-11/12 object-contain aspect-square  snap-center inline-block border border-line bg-secondary mr-5 p-5 rounded-2xl' />
             </Link>
           </div>
 
@@ -106,7 +104,7 @@ export default function Page() {
 
         <Spacer size={12} />
 
-        <section className='snap-start snap-always scroll-m-12'>
+        <section className=' scroll-my hideScrollbar'>
           <header>
             <h4 className='text-h4 text-color font-black'>Latest Bogs</h4>
           </header>
@@ -127,7 +125,7 @@ export default function Page() {
         <Spacer size={12} />
 
         {/* Customer Review Section  */}
-        <section  className='snap-start snap-always scroll-m-12'>
+        <section  className='hideScrollbar'>
           <header>
             <h4 className='text-h4 text-color font-black'>Customer Reviews</h4>
             <div className='flex justify-start items-center gap-3 mt-1'>
@@ -138,8 +136,9 @@ export default function Page() {
             </div>
           </header>
           <Spacer size={6} />
+
           {/* customer comments */}
-          <section className={`${styles.noScrollBar} overflow-x-auto whitespace-pre snap-x snap-mandatory scroll-p-7 -mx-5 px-5`}>
+          <section className={`${styles.noScrollBar}    overflow-x-auto whitespace-pre snap-x snap-mandatory scroll-p-7 -mx-5 px-5`}>
             <div className='snap-center whitespace-normal scroll-m-2  mr-5 snap-always inline-block w-11/12'>
               <CustomerReview avatarUrl={blogBG1} comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Chioma M.'} />
             </div>
@@ -154,12 +153,15 @@ export default function Page() {
             </div>
           </section>
         </section>
-        <Spacer size={8} />
-        <hr className='-mx-5' />
-        <Spacer size={8} />
-        <NewsLetter />
-        <Spacer size={8} />
-        <Footer />
+        <Spacer size={12} />
+        <section className=' w-full hideScrollbar'>
+          <NewsLetter />
+        </section>
+        <Spacer size={12} />
+
+        <section className='hideScrollbar'>
+          <Footer />
+        </section>
         </main>        
     </>
   )

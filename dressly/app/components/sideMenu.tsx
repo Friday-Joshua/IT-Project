@@ -58,27 +58,27 @@ export default function SideMenu({children}:{children:React.ReactNode}) {
                     </Link>
                 </li>
                 <li>
-                    <Link href='/shop' className={`${pathName == '/shop' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Shop
+                    <Link href='/shop' onClick={()=>sideMenu.toggle()} className={`${pathName == '/shop' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Shop
                     </Link>
                 </li>
                 <li>
-                    <Link href='/services' className={`${pathName == '/services' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Services</Link>
+                    <Link href='/services' onClick={()=>sideMenu.toggle()} className={`${pathName == '/services' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Services</Link>
                 </li>
                 <li>
-                    <Link href='/profile' className={`${pathName == '/profile' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Profile</Link>
+                    <Link href='/profile' onClick={()=>sideMenu.toggle()} className={`${pathName == '/profile' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Profile</Link>
                 </li>
-                <li><Link href='/blog' className={`${pathName == '/blog' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Blog</Link></li>
-                <li><Link href='/notification' className={`${pathName == '/notification' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Notification</Link></li>
-                <li><Link href='/about-us' className={`${pathName == '/about-us' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>About us</Link></li>
-                <li><Link href='/contact-us' className={`${pathName == '/contact-us' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Contact us</Link></li>
-                <li><Link href='/settings' className={`${pathName == '/settings' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Settings</Link></li>
+                <li><Link href='/blog' onClick={()=>sideMenu.toggle()} className={`${pathName == '/blog' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Blog</Link></li>
+                <li><Link href='/notification' onClick={()=>sideMenu.toggle()} className={`${pathName == '/notification' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Notification</Link></li>
+                <li><Link href='/about-us' onClick={()=>sideMenu.toggle()} className={`${pathName == '/about-us' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>About us</Link></li>
+                <li><Link href='/contact-us' onClick={()=>sideMenu.toggle()} className={`${pathName == '/contact-us' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Contact us</Link></li>
+                <li><Link href='/settings' onClick={()=>sideMenu.toggle()} className={`${pathName == '/settings' ? "trans-w-200" : ""} active:trans-w-100 hover:trans-w-100 px-10 py-3 rounded-full text-a-50 font-medium`}>Settings</Link></li>
             </ul>
             <footer className='flex justify-between items-center w-full mt-9'>
-                <Link href='/signin' className='px-10 py-3 rounded-full text-a-50 font-medium bg-accent'>Sign In</Link>
-                <Link href='/signup' className='px-10 py-3 rounded-full text-a-50 font-medium active:underline hover:underline'>Sign Up</Link>
+                <Link href='/signin' onClick={()=>sideMenu.toggle()} className='px-10 py-3 rounded-full text-a-50 font-medium bg-accent'>Sign In</Link>
+                <Link href='/signup' onClick={()=>sideMenu.toggle()} className='px-10 py-3 rounded-full text-a-50 font-medium active:underline hover:underline'>Sign Up</Link>
             </footer>
         </aside> }
-        <main ref={mainElRef} className={`z-40 drop-bg transition duration-500`}>
+        <main ref={mainElRef} id="page-wrapper" className={`z-50 hideScrollbar w-full overflow-x-hidden max-h-screen overflow-y-scroll snap-y snap-mandatory drop-bg bg-primary transition duration-500`}>
             {children}
         </main>        
         </>
