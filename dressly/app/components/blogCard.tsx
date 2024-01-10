@@ -3,7 +3,7 @@ import Link from "next/link";
 import BlogCardActions from "./blogCardActions";
 import Image, { StaticImageData } from "next/image";
 
-export type BlogCardProps = {title:string,heroSrc:StaticImageData, author:string, date:string, views:number,likes:number, content:string}
+export type BlogCardProps = {title:string,heroSrc:string, author:string, date:string, views:number,likes:number, content:string}
 
 export default function BlogCard({title, heroSrc, author, date, views, likes, content}:BlogCardProps) {
     return (

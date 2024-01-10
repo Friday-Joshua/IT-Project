@@ -2,27 +2,28 @@ import { Chat, Notepad, Ruler, ShoppingCart } from '@phosphor-icons/react/dist/s
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import blogBG1 from '@/public/blog-bg1.png'
-import blogBG2 from '@/public/blog-bg2.png'
-import blogBG3 from '@/public/blog-bg3.png'
-import BlogCard, { BlogCardProps } from '@/app/components/blogCard'
-import CustomerReview from '@/app/components/customerReview'
+
+import { BlogCardProps } from '@/app/components/blogCard'
 import {HomeNavbar} from './components/navbar'
-import NewsLetter from './components/newsletter'
 import Spacer from './components/spacer'
-import Footer from './components/footer'
+import dynamic from 'next/dynamic'
 
 // Stylesheets
 import styles from './styles/index.module.css'
 
-export default function Page() {
+const BlogCard = dynamic(()=> import('@/app/components/blogCard'));
+const CustomerReview = dynamic(()=> import('@/app/components/customerReview'));
+const NewsLetter = dynamic(()=> import('@/app/components/newsletter'));
+const Footer = dynamic(()=> import('@/app/components/footer'));
+
+export default function Page() {BlogCard
   type BlogType = BlogCardProps & { id: string };
   const blogPosts: BlogType[] = [
-    { id: "1258", title: "Navigating the World of Fashion", author: "Jane Doe", heroSrc: blogBG1, date: 'September 05 2023', views: 38, likes: 59, content: "Vintage fashion is more than just clothing; it's a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring '20s to the glamorous '50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period." },
+    { id: "1258", title: "Navigating the World of Fashion", author: "Jane Doe", heroSrc:'/blog-bg1.png' , date: 'September 05 2023', views: 38, likes: 59, content: "Vintage fashion is more than just clothing; it's a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring '20s to the glamorous '50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period." },
 
-    { id: "484934", title: "Couture Corner: All About High-End Fashion", author: "Jane Doe", heroSrc: blogBG2, date: 'September 10 2023', views: 48, likes: 82, content: "Vintage fashion is more than just clothing; it's a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring '20s to the glamorous '50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period." },
+    { id: "484934", title: "Couture Corner: All About High-End Fashion", author: "Jane Doe", heroSrc:'/blog-bg2.png' , date: 'September 10 2023', views: 48, likes: 82, content: "Vintage fashion is more than just clothing; it's a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring '20s to the glamorous '50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period." },
 
-    { id: "0edd0e39", title: "Navigating the World of Fashion", author: "Jane Doe", heroSrc: blogBG3, date: 'September 20 2023', views: 28, likes: 47, content: "Vintage fashion is more than just clothing; it's a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring '20s to the glamorous '50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period." },];
+    { id: "0edd0e39", title: "Navigating the World of Fashion", author: "Jane Doe", heroSrc: '/blog-bg3.png', date: 'September 20 2023', views: 28, likes: 47, content: "Vintage fashion is more than just clothing; it's a treasure trove of stories, each garment bearing witness to the cultural, social, and artistic influences of its time. From the roaring '20s to the glamorous '50s and beyond, every era brought forth distinct silhouettes, fabrics, and designs that reflected the essence of that period." },];
 
   return (
     <>
@@ -138,18 +139,18 @@ export default function Page() {
           <Spacer size={6} />
 
           {/* customer comments */}
-          <section className={`${styles.noScrollBar}    overflow-x-auto whitespace-pre snap-x snap-mandatory scroll-p-7 -mx-5 px-5`}>
+          <section className={`${styles.noScrollBar} overflow-x-auto whitespace-pre snap-x snap-mandatory scroll-p-7 -mx-5 px-5`}>
             <div className='snap-center whitespace-normal scroll-m-2  mr-5 snap-always inline-block w-11/12'>
-              <CustomerReview avatarUrl={blogBG1} comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Chioma M.'} />
+              <CustomerReview avatarUrl= '/blog-bg3.png' comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Chioma M.'} />
             </div>
             <div className='snap-center scroll-m-2 snap-always mr-5 whitespace-normal inline-block w-11/12'>
-              <CustomerReview avatarUrl={blogBG2} comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Kelly K.'} />
+              <CustomerReview avatarUrl= '/blog-bg1.png' comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Kelly K.'} />
             </div>
             <div className='snap-center scroll-m-2 snap-always mr-5 whitespace-normal inline-block w-11/12'>
-              <CustomerReview avatarUrl={blogBG3} comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Kelly K.'} />
+              <CustomerReview avatarUrl= '/blog-bg2.png' comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Kelly K.'} />
             </div>
             <div className='snap-center scroll-m-2 snap-always whitespace-normal inline-block w-11/12'>
-              <CustomerReview avatarUrl={blogBG1} comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Janny J.'} />
+              <CustomerReview avatarUrl='/blog-bg3.png' comment={`Exceptional quality! The dress exceeded my expectations. Perfect fit and exquisite design. Will definitely shop here again!`} userName={'Janny J.'} />
             </div>
           </section>
         </section>

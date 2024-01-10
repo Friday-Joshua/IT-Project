@@ -1,15 +1,24 @@
 'use client'
 
-import Input from "../../components/inputs";
-import {X,ArrowRight,CaretLeft} from '@phosphor-icons/react'
+import dynamic from "next/dynamic";
 import { Metadata } from "next";
-import Link from 'next/link'
 import { useState, FormEvent, HTMLAttributes} from "react";
 import { useRouter } from "next/navigation";
 
 export const metaData:Metadata = {
     title:"Dressly | Signup for a free account"
 }
+
+const Link = dynamic(() => import('next/link'));
+const Spacer = dynamic(() => import('@/app/components/spacer'));
+const ArrowRight = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.ArrowRight));
+const CaretLeft = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.CaretLeft));
+const X = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.X));
+const InputEmail = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputEmail));
+const InputPassword = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputPassword));
+const InputOTP = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputOTP));
+const InputTel= dynamic(() => import('@/app/components/inputs').then(mod => mod.InputTel));
+const InputText = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputText));
 
 type FormState = Partial<{email:string, password:string, fullName:string, tel:string}>;
 
@@ -78,9 +87,9 @@ function Phase1({formState:[prevState,setFormState],progress}:HTMLAttributes<HTM
                 </Link>
             </div> 
             <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
-                <Input.Text defaultValue={(prevState as FormState).fullName} label='Fullname' name="fullName" id="fullname" placeholder="John Doe" />
-                <Input.Email defaultValue={(prevState as FormState).email} label='Email' name="email" id="email" placeholder="me@example.com" />
-                <Input.Tel defaultValue={(prevState as FormState).tel} label='Phone number' name="tel" id="tel" placeholder="080468238" />
+                <InputText defaultValue={(prevState as FormState).fullName} label='Fullname' name="fullName" id="fullname" placeholder="John Doe" />
+                <InputEmail defaultValue={(prevState as FormState).email} label='Email' name="email" id="email" placeholder="me@example.com" />
+                <InputTel defaultValue={(prevState as FormState).tel} label='Phone number' name="tel" id="tel" placeholder="080468238" />
                 <Link href={'/password-reset'} className=" underline text-b-500">Can&apos;t remember password?</Link>
                 <button type="submit" disabled={isFormValid} className="lg:hover:bg-a-600 active:bg-a-600 bg-accent flex flext-row justify-center items-center rounded-full h-[50px] text-a-50 gap-2">Next: Create Password <ArrowRight size={20} /></button>
             </form>
@@ -118,8 +127,8 @@ function Phase2({formState:[prevState,setFormState],progress}:HTMLAttributes<HTM
                 <h1 className="text-h3 font-black">Create Password</h1>
             </header>
             <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-5">
-                <Input.Password defaultValue={(prevState as FormState).password} name="password" label="Password" id="password" placeholder="***********"/>
-                <Input.Password defaultValue={(prevState as FormState).password} name="cPassword" label="Confirm Password" id="cpassword" placeholder="***********"/>
+                <InputPassword defaultValue={(prevState as FormState).password} name="password" label="Password" id="password" placeholder="***********"/>
+                <InputPassword defaultValue={(prevState as FormState).password} name="cPassword" label="Confirm Password" id="cpassword" placeholder="***********"/>
                 <button type="submit"  className="lg:hover:bg-a-600 active:bg-a-600 bg-accent flex flext-row justify-center items-center rounded-full h-[50px] text-a-50 gap-2">Confirm Password</button>
             </form>
         </>
@@ -158,7 +167,7 @@ function Phase3({formState:[prevState,setFormState],progress}:HTMLAttributes<HTM
             </header>
             <p>A 6-digit verification code has been sent to <span className="font-bold">johndoe@example.com.</span> Enter the code in the textbox below</p>
             <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-5">
-                <Input.OTP name="otp" label="OTP" id="otp" placeholder="0 0 0 0 0 0"/>
+                <InputOTP name="otp" label="OTP" id="otp" placeholder="0 0 0 0 0 0"/>
                 <button type="submit"  className="lg:hover:bg-a-600 active:bg-a-600 bg-accent flex flext-row justify-center items-center rounded-full h-[50px] text-a-50 gap-2">Verify OTP </button>
             </form>
         </>

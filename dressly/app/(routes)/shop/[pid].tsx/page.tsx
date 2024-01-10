@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 const Navbar = dynamic(() => import('@/app/components/navbar'));
 const Spacer = dynamic(() => import('@/app/components/spacer'));
-const Activity = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.Activity));
+const Bell = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.Bell));
 
 export default function Page() {
     return (
@@ -10,9 +10,9 @@ export default function Page() {
             <main className="w-screen h-screen flex flex-col justify-center items-center">
                 <div className="flex justify-center items-center gap-4">
                     <i className="flex justify-center items-center bg-a-50 p-4 rounded-2xl">
-                        <Activity size={20} className="text-accent" />
+                        <Bell size={20} className="text-accent" />
                     </i>
-                    <em className="text-accent">Services</em>
+                    <em className="text-accent">Product</em>
                 </div>
                 <Spacer size={2} />
                 <h1 className="animate-pulse text-h-color text-h1 font-black">Coming Soon</h1>

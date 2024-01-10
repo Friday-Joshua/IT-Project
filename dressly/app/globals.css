@@ -80,3 +80,24 @@ html,body {
 .hideScrollbar::-webkit-scrollbar {
   appearance: none;
 }
+
+.showFilter {
+  transform: translateY(0);
+}
+
+.hideFilter {
+  transform: translateY(100%);
+}
+
+.overlay {
+  background-color: rgba( 0 0 0 /0.4);
+}
+.slideUp {
+  transform: translateY(50%);
+  animation: slideUp 200ms ease-out forwards;
+}
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+  }
+}

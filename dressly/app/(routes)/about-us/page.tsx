@@ -1,13 +1,15 @@
-import Footer from "@/app/components/footer";
-import Navbar from "@/app/components/navbar";
-import Spacer from "@/app/components/spacer";
-import { Ruler, Notepad, ShoppingCart } from "@phosphor-icons/react/dist/ssr";
-import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const Footer = dynamic(()=> import('@/app/components/footer'));
+const Spacer = dynamic(()=> import('@/app/components/spacer'));
+const Ruler = dynamic(()=> import('@phosphor-icons/react/dist/ssr').then(mod=>mod.Ruler));
+const Notepad = dynamic(()=> import('@phosphor-icons/react/dist/ssr').then(mod=>mod.Notepad));
+const ShoppingCart = dynamic(()=> import('@phosphor-icons/react/dist/ssr').then(mod=>mod.ShoppingCart));
+const Link = dynamic(()=> import('next/link'));
 
 export default function Page() {
     return (
         <>
-            <Navbar pageOffset={32} />
             <Spacer size={8} />
             <main className="mx-5">
                 <Spacer size={4} />
@@ -24,7 +26,7 @@ export default function Page() {
                 {/* Our Goal */}
                 <section className="w-full hideScrollbar">
                     <h3 className="font-black text-h-color text-h3">Our Goal</h3>
-                    <Spacer size={8}/>
+                    <Spacer size={8} />
 
                     <article className='flex flex-col gap-4 justify-between items-center bg-white rounded-2xl border border-w-100 p-5 '>
                         <span className='flex justify-center w-16 h-16 items-center -mt-[52px] p-5 border border-w-100 rounded-full bg-w-500 font-bold text-h-color text-h4' >1</span>
@@ -82,10 +84,10 @@ export default function Page() {
                     </article>
                 </section>
                 <Spacer size={16} />
-                
+
                 {/* Footer Section */}
                 <section className="w-full hideScrollbar">
-                    <Footer/>
+                    <Footer />
                 </section>
             </main>
         </>

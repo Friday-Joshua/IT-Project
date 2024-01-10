@@ -10,7 +10,7 @@ export default function NewsLetter() {
             <h4 className='text-h-color text-h4'>Subscribe to Our Newsletter</h4>
             <p className='text-b-500 '>Stay In The Loop with our latest updates, promotions, and fashion tips!</p>
             </header>
-            <Input.Email label='Email' id='id' placeholder='me@example.com' name='newLetterEmail'/>
+            <InputEmail label='Email' id='id' placeholder='me@example.com' name='newLetterEmail'/>
             <div className='flex justify-between items-center gap-3'>
                 <input type="checkbox" name="exclusive-offers" id="exclusive-offers" className='w-5 h-5' />
                 <label htmlFor="exclusive-offers">I want to receive exclusive offers and promotions.</label>

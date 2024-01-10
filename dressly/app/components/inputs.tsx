@@ -2,10 +2,12 @@
 import { Eye, EyeClosed } from "@phosphor-icons/react";
 import React, { FormEvent, InputHTMLAttributes, useState } from "react";
 import styles from '../styles/input.module.css';
+import { SlidersHorizontal } from "@phosphor-icons/react/dist/ssr";
+import SearchFilter from "../(routes)/shop/searchFilter";
 
 type InputType = InputHTMLAttributes<HTMLInputElement> & { label: string };
 
-function Text({ id, placeholder, label, defaultValue, name }: InputType): React.ReactNode {
+export function InputText({ id, placeholder, label, defaultValue, name }: InputType): React.ReactNode {
     return (
         <section className="flex flex-col gap-2 justify-start w-full max-w-full">
             <label className="text-b-100 text-lg" htmlFor={id}>{label}</label>
@@ -13,7 +15,7 @@ function Text({ id, placeholder, label, defaultValue, name }: InputType): React.
         </section>
     )
 }
-function TextArea({ id, placeholder, label, defaultValue, name }: InputType): React.ReactNode {
+export function InputTextArea({ id, placeholder, label, defaultValue, name }: InputType): React.ReactNode {
     return (
         <section className="flex flex-col gap-2 justify-start w-full max-w-full">
             <label className="text-b-100 text-lg" htmlFor={id}>{label}</label>
@@ -22,7 +24,7 @@ function TextArea({ id, placeholder, label, defaultValue, name }: InputType): Re
     )
 }
 
-function Tel({ id, placeholder, label, defaultValue, name }: InputType): React.ReactNode {
+export function InputTel({ id, placeholder, label, defaultValue, name }: InputType): React.ReactNode {
     return (
         <section className="flex flex-col gap-2 justify-start w-full max-w-full">
             <label className="text-b-100 text-lg" htmlFor={id}>{label}</label>
@@ -31,7 +33,7 @@ function Tel({ id, placeholder, label, defaultValue, name }: InputType): React.R
     )
 }
 
-function Email({ label, placeholder, id, defaultValue, name }: InputType): React.ReactNode {
+export function InputEmail({ label, placeholder, id, defaultValue, name }: InputType): React.ReactNode {
     return (
         <section className="flex flex-col gap-2 justify-start w-full max-w-full">
             <label htmlFor={id} className="text-b-100 text-lg" >{label}</label>
@@ -40,7 +42,7 @@ function Email({ label, placeholder, id, defaultValue, name }: InputType): React
     )
 }
 
-function OTP({ label, placeholder, id, name }: InputType): React.ReactNode {
+export function InputOTP({ label, placeholder, id, name }: InputType): React.ReactNode {
 
     function handleInput(e: FormEvent<HTMLInputElement>) {
         if (e.currentTarget.value.length > 6) {
@@ -56,13 +58,13 @@ function OTP({ label, placeholder, id, name }: InputType): React.ReactNode {
         </section>
     )
 }
-function Button({ label }: InputType): React.ReactNode {
+export function InputButton({ label }: InputType): React.ReactNode {
     return (
         <button type="submit" className="w-full text-center font-medium text-lg bg-accent text-a-50 rounded-full px-6 py-4 transition duration-200 active:scale-95 active:opacity-50 hover:opacity-80">{label}</button>
     )
 }
 
-function Password({ label, placeholder, id, defaultValue, name }: InputType): React.ReactNode {
+export function InputPassword({ label, placeholder, id, defaultValue, name }: InputType): React.ReactNode {
     const [isVisible, setIsVisible] = useState<boolean>(false);
     function visibilityToggler() {
         setIsVisible(!isVisible);
@@ -79,24 +81,25 @@ function Password({ label, placeholder, id, defaultValue, name }: InputType): Re
     )
 }
 
-function Search({placeholder}: Omit<InputType,'label'|'defaultValue'|'name'|'id'>): React.ReactNode {
+export function InputSearch({ placeholder }: Omit<InputType, 'label' | 'defaultValue' | 'name' | 'id'>): React.ReactNode {
+    const [filter, setFilter] = useState<string>('all');
+    
     return (
-        <section className="flex flex-col gap-2 justify-start w-full max-w-full">
-            <input className={`${styles.inputSearch} font-bold placeholder:font-normal text-lg text-h-color rounded-full h-16 focus:border-accent outline-none focus:outline-none transition-all duration-150 pl-12 pr-5 border border-w-100 py-2`} type="search" placeholder={placeholder} required />
-        </section>
+        <>
+            <div className=" bg-secondary flex justify-start gap-3 items-center divide-x divide-gray-200 rounded-full border border-w-100 h-16 ">
+                <input className={`${styles.inputSearch} w-[80%] font-bold placeholder:font-normal text-lg text-h-color rounded-full h-full focus:border-accent outline-none focus:outline-none transition-all duration-150 pl-12 py-2`} type="text" placeholder={placeholder} required />
+                <span className="flex justify-center items-center p-2 w-[20%] h-full aspect-square transition duration-200 active:rounded-r-full rounded-r-full active:bg-w-500">
+                    <SlidersHorizontal size={24} className="text-icon fill-slate-600" onClick={() => {
+                        document.getElementById('filterScrim').classList.remove('hidden');
+                        document.getElementById('filterContainer').classList.add('slideUp');
+                    }} />
+                </span>
+            </div>
+            <SearchFilter onFilter={[filter,setFilter]} />
+        </>
     )
 }
 
 export function SearchBar() {
-    return  <Input.Search placeholder="search for clothes" />
+    return <InputSearch placeholder="search for clothes" />
 }
-
-export default function Input() { }
-Input.Text = Text;
-Input.Password = Password;
-Input.Submit = Button;
-Input.OTP = OTP;
-Input.Email = Email;
-Input.Tel = Tel;
-Input.TextArea = TextArea;
-Input.Search = Search;

@@ -8,7 +8,6 @@ import Link from "next/link";
 export default function Page() {
     return (
         <>
-            <Navbar pageOffset={10} />
             <main className="mx-5">
                 <Spacer size={8} />
                 <header className="">

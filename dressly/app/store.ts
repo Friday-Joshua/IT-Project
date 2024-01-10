@@ -6,14 +6,15 @@ export interface Product {
     isFavourite:boolean,
     desc:string,
     tags:string[],
-    inStore:boolean
+    inStore:boolean,
+    src:string
 }
 
-const Products:Product[] = [
-    {pid:"XG73JD",label:'Flower Sundress',price:15000,rate:3.5,isFavourite:false,tags:['sundress'],inStore:true,desc:"Imagine a garment so ethereal that even the sunlight yearns to dance upon its fabric, a sundress that embodies the very essence of summer itself. Its flowing skirt, kissed by a thousand sunbeams, twirls and sways as if orchestrating a symphony of joyous hues. The bodice, a masterpiece of design, effortlessly complements the wearer's silhouette, invoking a sense of timeless grace and elegance. Adorned with colors that rival a painter's palette and patterns that echo the whispers of a gentle breeze, this sundress is not merely an article of clothing; it's a radiant proclamation of carefree bliss and everlasting beauty."
+const products:Product[] = [
+    {pid:"XG73JD", src:'/image1.png',label:'Flower Sundress',price:15000,rate:3.5,isFavourite:false,tags:['sundress'],inStore:true,desc:"Imagine a garment so ethereal that even the sunlight yearns to dance upon its fabric, a sundress that embodies the very essence of summer itself. Its flowing skirt, kissed by a thousand sunbeams, twirls and sways as if orchestrating a symphony of joyous hues. The bodice, a masterpiece of design, effortlessly complements the wearer's silhouette, invoking a sense of timeless grace and elegance. Adorned with colors that rival a painter's palette and patterns that echo the whispers of a gentle breeze, this sundress is not merely an article of clothing; it's a radiant proclamation of carefree bliss and everlasting beauty."
     },
     {pid:"92JCEX",
-    label:'Whispering Breeze Dress',
+    src:'/image2.png',label:'Whispering Breeze Dress',
     price:12000,
     rate:4.5,
     isFavourite:false,
@@ -23,7 +24,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"DXK93S",
-    label:'Effortless Elegance Ensemble',
+    src:'/image3.png',label:'Effortless Elegance Ensemble',
     price:8000,
     rate:4.0,
     isFavourite:false,
@@ -33,7 +34,7 @@ const Products:Product[] = [
     },    
     // **************
     {pid:"II64hs",
-    label:'Starlit Symphony Gown:',
+    src:'/image4.png',label:'Starlit Symphony Gown:',
     price:9000,
     rate:4.5,
     isFavourite:false,
@@ -43,7 +44,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"jdhF86",
-    label:'Regal Radiance Regalia',
+    src:'/image5.png',label:'Regal Radiance Regalia',
     price:5000,
     rate:4.5,
     isFavourite:false,
@@ -53,17 +54,17 @@ const Products:Product[] = [
     },
     // **************
     {pid:"9gw6RD",
-    label:'Celestial Cascade Gown',
+    src:'/image6.png',label:'Celestial Cascade Gown',
     price:11000,
     rate:3.0,
     isFavourite:false,
     tags:['maxi dress'],
     inStore:true,
-    desc:"A maxi dress that seems to cascade like a celestial waterfall, its fabric woven from the dreams of moonbeams and the whispers of ancient goddesses. Enveloping the wearer in a cosmic embrace, it trails behind in a mesmerizing symphony of elegance and allure."
+    desc:"A maxi8 dress that seems to cascade like a celestial waterfall, its fabric woven from the dreams of moonbeams and the whispers of ancient goddesses. Enveloping the wearer in a cosmic embrace, it trails behind in a mesmerizing symphony of elegance and allure."
     },
     // **************
     {pid:"BG65dx",
-    label:'Enchanting Elegance Ensemble',
+    src:'/image7.png',label:'Enchanting Elegance Ensemble',
     price:9000,
     rate:3.5,
     isFavourite:false,
@@ -73,7 +74,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"KI96ds",
-    label:'Whimsical Whirlwind Dress',
+    src:'/image8.png',label:'Whimsical Whirlwind Dress',
     price:12000,
     rate:4.5,
     isFavourite:false,
@@ -83,7 +84,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"GHtt6",
-    label:' Mystic Meridian Frock',
+    src:'/image9.png',label:' Mystic Meridian Frock',
     price:13000,
     rate:4.0,
     isFavourite:false,
@@ -93,7 +94,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"ui54d",
-    label:'Radiant Revelry Raiment',
+    src:'/image10.png',label:'Radiant Revelry Raiment',
     price:15000,
     rate:3.5,
     isFavourite:false,
@@ -103,7 +104,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"oP08gR",
-    label:'Effervescent Euphoria Ensemble',
+    src:'/image11.png',label:'Effervescent Euphoria Ensemble',
     price:13800,
     rate:4.0,
     isFavourite:false,
@@ -113,7 +114,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"ouiG65D",
-    label:'Whispering Willow Wrap',
+    src:'/image12.png',label:'Whispering Willow Wrap',
     price:10000,
     rate:4.0,
     isFavourite:false,
@@ -123,7 +124,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"hj6s6",
-    label:'Enigmatic Embrace Ensemble',
+    src:'/image13.png',label:'Enigmatic Embrace Ensemble',
     price:10500,
     rate:4.0,
     isFavourite:false,
@@ -133,7 +134,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"oTTR54",
-    label:'Cosmic Cascade Couture',
+    src:'/image14.png',label:'Cosmic Cascade Couture',
     price:8500,
     rate:3.5,
     isFavourite:false,
@@ -143,7 +144,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"pO6g76G",
-    label:'Timeless Tranquility Tunic',
+    src:'/image17.png',label:'Timeless Tranquility Tunic',
     price:12500,
     rate:3.5,
     isFavourite:false,
@@ -153,7 +154,7 @@ const Products:Product[] = [
     },
     // **************
     {pid:"09Bvfd",
-    label:'Siren"s Silhouette Stunner',
+    src:'/image16.png',label:'Siren"s Silhouette Stunner',
     price:11000,
     rate:4.0,
     isFavourite:false,
@@ -162,3 +163,49 @@ const Products:Product[] = [
     desc:"A bodycon dress that seems sculpted by the mythical sirens themselves, its fabric a symphony of allure and mystique. Wearing it, the wearer embodies a mesmerizing silhouette that captivates with every graceful movement."
     },
 ]
+
+
+class Cart{
+    items:Product[] = [];
+    
+    addToCart(product:Product) {
+        try{
+            this.items = [...this.items,...[product]];
+            return true
+        }catch(e) {
+            return false
+        }
+    }
+
+    removeFromCart(pid:string) {
+        this.items = this.items.filter(product=> {
+            return product.pid !== pid;
+        });
+        // checking if product was successfully deleted
+        const isRemoved = this.items.findIndex(product=> {
+            return product.pid = pid;
+        });
+        if(isRemoved === -1) {
+            return true
+        }else {
+            return false
+        }
+    }
+}
+
+export default class Store {
+    #items:Readonly<Product[]> = products;
+    #cart:Cart = new Cart();
+
+    getItems() {
+        return this.#items;
+    }
+
+    getCart() {
+        return this.#cart;
+    }
+
+    getStoreSize() {
+        return this.#items.length;
+    }
+}

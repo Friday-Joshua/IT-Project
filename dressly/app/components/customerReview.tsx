@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react";
 import Rating from "./rating";
 import Image, { StaticImageData } from 'next/image'
 
-type CustomerReviewProps = {avatarUrl:StaticImageData, comment:string, userName:string};
+type CustomerReviewProps = {avatarUrl:string, comment:string, userName:string};
 
 export default function CustomerReview({avatarUrl,comment,userName}:CustomerReviewProps) {
     return (

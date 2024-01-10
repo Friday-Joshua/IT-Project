@@ -1,15 +1,23 @@
 'use client'
 
-import { ArrowRight, CaretLeft, X } from '@phosphor-icons/react';
+import dynamic from "next/dynamic";
 import { Metadata } from "next";
-import Link from 'next/link';
 import { FormEvent, HTMLAttributes, useState } from "react";
-import Input from "../../components/inputs";
 import {useRouter} from 'next/navigation';
 
 export const metaData: Metadata = {
     title: "Dressly | Signin your free account or create one"
 }
+
+const Link = dynamic(() => import('next/link'));
+const Spacer = dynamic(() => import('@/app/components/spacer'));
+const ArrowRight = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.ArrowRight));
+const CaretLeft = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.CaretLeft));
+const X = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.X));
+const InputEmail = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputEmail));
+const InputPassword = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputPassword));
+const InputOTP = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputOTP));
+
 
 type FormState = Partial<{ email: string, password: string }>;
 
@@ -72,8 +80,8 @@ function Phase1({ formState: [prevState, setFormState], progress }: HTMLAttribut
                 </Link>
             </div>
             <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
-                <Input.Email defaultValue={(prevState as FormState).email} label='Email' name="email" id="email" placeholder="me@example.com" />
-                <Input.Password defaultValue={(prevState as FormState).password} name="password" label="Password" id="password" placeholder="***********" />
+                <InputEmail defaultValue={(prevState as FormState).email} label='Email' name="email" id="email" placeholder="me@example.com" />
+                <InputPassword defaultValue={(prevState as FormState).password} name="password" label="Password" id="password" placeholder="***********" />
                 <Link href={'/password-reset'} className=" underline text-b-500">Can&apos;t remember password?</Link>
                 <button type="submit" disabled={isFormValid} className="lg:hover:bg-a-600 active:bg-a-600 bg-accent flex flext-row justify-center items-center rounded-full h-[50px] text-a-50 gap-2">Next: Create Password <ArrowRight size={20} /></button>
             </form>
@@ -117,7 +125,7 @@ function Phase2({ formState: [prevState, setFormState], progress }: HTMLAttribut
             </header>
             <p>A 6-digit verification code has been sent to <span className="font-bold">johndoe@example.com.</span> Enter the code in the textbox below</p>
             <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-5">
-                <Input.OTP name="otp" label="OTP" id="otp" placeholder="0 0 0 0 0 0" />
+                <InputOTP name="otp" label="OTP" id="otp" placeholder="0 0 0 0 0 0" />
                 <button type="submit" className="lg:hover:bg-a-600 active:bg-a-600 bg-accent flex flext-row justify-center items-center rounded-full h-[50px] text-a-50 gap-2">Verify OTP </button>
             </form>
         </>
