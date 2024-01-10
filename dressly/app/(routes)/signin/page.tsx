@@ -1,13 +1,13 @@
 'use client'
 
 import dynamic from "next/dynamic";
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import { FormEvent, HTMLAttributes, useState } from "react";
 import {useRouter} from 'next/navigation';
 
-export const metaData:Metadata = {
-    title:"Dressly | Signup for a free account"
-}
+// export const metaData:Metadata = {
+//     title:"Dressly | Signup for a free account"
+// }
 
 const Link = dynamic(() => import('next/link'));
 const Spacer = dynamic(() => import('@/app/components/spacer'));

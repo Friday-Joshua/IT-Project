@@ -1,7 +1,6 @@
 import { Envelope, FacebookLogo, InstagramLogo, MapPin, Phone, TwitterLogo, WhatsappLogo, X} from "@phosphor-icons/react/dist/ssr";
 import NewsLetter from "./newsletter";
 import Spacer from "./spacer";
-import Input from "./inputs";
 import Email from "./email";
 import Link from 'next/link'
 
