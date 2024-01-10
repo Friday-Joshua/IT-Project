@@ -1,6 +1,11 @@
 'use client'
 
-import Input from "@/app/components/inputs";
+import dynamic from 'next/dynamic';
+
+const InputEmail = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputEmail));
+const InputTextArea = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputTextArea));
+const InputSubmit = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputSubmit));
+
 
 export default function ContactForm() {
     return (
@@ -8,7 +13,7 @@ export default function ContactForm() {
             <form action="" className="flex flex-col justify-between items-center gap-4">
                 <InputEmail label="Email" placeholder="me@example.com" id="email" name="email" defaultValue={''} />
                 <InputTextArea label="Message us" placeholder="Hello!" id="message" name="message" defaultValue={''} />
-                <Input.Submit label="Send Message" />
+                <InputSubmit label="Send Message" />
             </form>
 
         </>

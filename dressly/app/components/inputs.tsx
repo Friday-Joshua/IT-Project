@@ -58,7 +58,7 @@ export function InputOTP({ label, placeholder, id, name }: InputType): React.Rea
         </section>
     )
 }
-export function InputButton({ label }: InputType): React.ReactNode {
+export function InputSubmit({ label }: InputType): React.ReactNode {
     return (
         <button type="submit" className="w-full text-center font-medium text-lg bg-accent text-a-50 rounded-full px-6 py-4 transition duration-200 active:scale-95 active:opacity-50 hover:opacity-80">{label}</button>
     )
