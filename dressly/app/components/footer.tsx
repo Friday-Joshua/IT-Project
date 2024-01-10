@@ -24,6 +24,8 @@ export default function Footer() {
                     <TwitterLogo size={28} weight='fill' className='text-a-50' />
                 </Link>
             </div>
+
+            
             <Spacer size={4} />
             <section className='flex flex-col items-start gap-4'> 
                 <h6 className='font-medium text-a-900'>Contact Information</h6>
