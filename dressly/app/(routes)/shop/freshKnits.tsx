@@ -9,7 +9,7 @@ import dress6 from '@/public/image6.png'
 import dress7 from '@/public/image7.png'
 import styles from '@/app/styles/index.module.css'
 
-export default () => {
+export default function FreshKits() {
     return (
         <section className={`${styles.noScrollBar} -mx-5 overflow-x-auto whitespace-pre snap-x snap-mandatory scroll-p-5 p-3`}>
             <Link href={'/shop/88sh63d'} className="">

@@ -1,8 +1,12 @@
 'use client'
 
-import { CircleNotch, TrendUp } from "@phosphor-icons/react"
-import Input from "./inputs"
+import dynamic from "next/dynamic";
+
 import { MouseEvent, useState } from "react"
+
+const InputEmail = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputEmail));
+const CircleNotch = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.CircleNotch));
+const TrendUp = dynamic(() => import('@phosphor-icons/react/dist/ssr').then(mod => mod.TrendUp));
 
 export default function Email() {
     const [inProgress, setInProgress] = useState<boolean>(false);

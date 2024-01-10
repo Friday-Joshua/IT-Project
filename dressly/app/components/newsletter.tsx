@@ -1,7 +1,9 @@
 'use client'
 
+import dynamic from 'next/dynamic';
+
 import Link from 'next/link'
-import Input from './inputs'
+const InputEmail = dynamic(() => import('@/app/components/inputs').then(mod => mod.InputEmail));
 
 export default function NewsLetter() {
     return (
