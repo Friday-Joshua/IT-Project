@@ -14,7 +14,6 @@ export default function LayoutNavbar() {
             {path === '/' ? <HomeNavbar /> :
             path === '/signin'||'/signup' ? null :
             <Navbar pageOffset={50} />}
-        </>
-    )
+        </>)
 
 }
